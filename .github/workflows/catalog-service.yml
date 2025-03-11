@@ -39,7 +39,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - if : ${{ github.ref=='ref/heads/main' }}
-        name: Build and push Docker image
+        name: Build and Publish Docker image
         run: |
           ./mvnw springboot:build-image -DskipTests
           docker push ${{ secrets.DOCKER_USERNAME }}/bookstore-catalog-service
